@@ -1,0 +1,16 @@
+<resources>
+  <string name="app_name">Marvel</string>
+  <string name="loading_lbl">Loading</string>
+  <string name="transition_character_cover">coverTransition</string>
+  <string name="comics_lbl">Comics</string>
+  <string name="events_lbl">Events</string>
+  <string name="series_lbl">Series</string>
+  <string name="stories_lbl">Stories</string>
+  <string name="summary_empty_text">This hero does not any %s to show</string>
+  <string name="search">Search</string>
+  <string name="empty_search">Can\'t find the character you are looking for? Try a wider search then!</string>
+  <string name="wider_search">Ask the world!</string>
+  <string name="not_found">Not found</string>
+  <string name="character_not_found">Sorry! We didn\'t found %s</string>
+  <string name="ok">ok</string>
+</resources>
