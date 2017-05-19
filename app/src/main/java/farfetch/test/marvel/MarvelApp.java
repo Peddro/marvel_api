@@ -15,18 +15,18 @@ import timber.log.Timber;
 
 public class MarvelApp extends Application implements HasActivityInjector {
 
-  @Inject DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
+    @Inject DispatchingAndroidInjector<Activity> dispatchingActivityInjector;
 
-  @Override public void onCreate() {
-    super.onCreate();
-    DaggerAppComponent.builder().create(this).inject(this);
+    @Override public void onCreate() {
+        super.onCreate();
+        DaggerAppComponent.builder().create(this).inject(this);
 
-    if (BuildConfig.DEBUG) {
-      Timber.plant(new Timber.DebugTree());
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
-  }
 
-  @Override public AndroidInjector<Activity> activityInjector() {
-    return dispatchingActivityInjector;
-  }
+    @Override public AndroidInjector<Activity> activityInjector() {
+        return dispatchingActivityInjector;
+    }
 }
