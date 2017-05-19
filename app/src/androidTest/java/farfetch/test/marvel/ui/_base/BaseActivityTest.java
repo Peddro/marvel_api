@@ -16,6 +16,8 @@ public abstract class BaseActivityTest {
     protected MockWebServer server;
 
     @CallSuper public void setUp() throws Exception {
+        // For this to work we would need to create a dagger module to be used for tests where we provide
+        // another Okhttp and Retrofit Client.
         server = new MockWebServer();
         server.start();
         server.enqueue(new MockResponse());
