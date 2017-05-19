@@ -22,15 +22,6 @@ public class CharacterItemViewModel extends BaseViewModel {
 
   public CharacterItemViewModel(CharacterItemContract.View view) {
     this.view = view;
-
-    // This logic might be weird but we need to listen to changes made on CharacterDetailActivity in here
-    // And this seems the reactive way to do it.... I think.?
-    addDisposable(UiObservers.getFavoriteObservable().subscribe(favoriteModel -> {
-      if (favoriteModel.getCharacterId().equals(character.getId())) {
-        character.setFavorite(!character.isFavorite());
-        notifyPropertyChanged(BR.favoriteDrawable);
-      }
-    }));
   }
 
   public void bindCharacter(Character character) {
@@ -54,6 +45,9 @@ public class CharacterItemViewModel extends BaseViewModel {
   }
 
   public void onFavoriteClick() {
+    character.setFavorite(!character.isFavorite());
+    notifyPropertyChanged(BR.favoriteDrawable);
+
     UiObservers.getFavoriteObservable().onNext(new FavoriteModel(character.isFavorite(), character.getId()));
   }
 }

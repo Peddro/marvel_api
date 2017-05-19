@@ -18,7 +18,6 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 import java.util.Set;
 import javax.inject.Inject;
-import timber.log.Timber;
 
 /**
  * Created by Pedro Glória on 13/05/2017.
@@ -157,10 +156,8 @@ public class MainViewModel extends BaseViewModel<MainContract.View> {
   private void subscribeForFavorites() {
     addDisposable(UiObservers.getFavoriteObservable().observeOn(Schedulers.io()).subscribe(favoriteModel -> {
       if (favoriteModel.isAdding()) {
-        Timber.i("Adding: %s", favoriteModel.getCharacterId());
         favorites.add(favoriteModel.getCharacterId());
       } else {
-        Timber.i("Removing: %s", favoriteModel.getCharacterId());
         favorites.remove(favoriteModel.getCharacterId());
       }
     }));
